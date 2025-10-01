@@ -1,21 +1,9 @@
 # Custom HTML Page - Browser Extension
 
-![Project Screenshot](./screenshot.png)
+<img alt='Screenshot' src='img alt='' src='/Users/aravde/Custom HTML page/Screenshot 2025-10-01 at 2.20.06 AM.png' width='100%' height='auto'/>
 
 A Chrome/Brave browser extension that provides a unified dashboard for managing tab groups, bookmarks, browsing history, and displays beautiful nature-themed background images.
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [APIs Used](#apis-used)
-- [Installation](#installation)
-- [Project Structure](#project-structure)
-- [Known Issues](#known-issues)
-- [Future Development Plans](#future-development-plans)
-- [Technical Details](#technical-details)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -108,25 +96,6 @@ The extension is designed to enhance productivity by providing quick access to f
 7. The extension will be installed and activated
 8. Open a new tab to see the custom page
 
-## Project Structure
-
-```
-Custom HTML page/
-├── manifest.json          # Extension configuration and permissions
-├── index.html            # Main HTML structure
-├── styles.css            # Styling and layout
-├── script.js             # Core functionality and API interactions
-├── README.md             # This file
-└── screenshot.png        # Project screenshot (add your own)
-```
-
-### File Descriptions
-
-- **manifest.json**: Defines extension metadata, permissions (tabGroups, bookmarks, history), and sets the custom new tab page
-- **index.html**: Contains the DOM structure with sections for tab groups, bookmarks, history, and background gallery
-- **styles.css**: Implements the visual design including glassmorphism effects, responsive layout, and animations
-- **script.js**: Handles all API calls, data processing, rendering logic, and search functionality
-
 ## Known Issues
 
 ### Critical Issue: Inactive Tab Groups Not Retrieved
@@ -158,80 +127,19 @@ This is a limitation of the Chrome Tab Groups API and browser memory management.
 
 ## Future Development Plans
 
-### Short-term Goals
 
-1. **Tab Groups Enhancement**
-   - Implement click-to-activate functionality for tab groups
-   - Add ability to create new tab groups from the extension
-   - Support for renaming and recoloring groups
-   - Drag-and-drop reordering of groups
-
-2. **Search Improvements**
-   - Global search across all sections
-   - Advanced filtering options (date ranges, categories)
-   - Search history and suggestions
-   - Keyboard shortcuts for quick search
-
-3. **Customization Options**
+1. **Customization Options**
    - User-selectable background images or upload custom images
    - Theme selection (light/dark mode, color schemes)
    - Configurable number of items displayed per section
    - Toggle visibility of individual sections
 
-### Medium-term Goals
-
-1. **Data Management**
-   - Export/import functionality for tab groups
-   - Backup and restore capabilities
-   - Sync settings across devices using Chrome Storage Sync API
-   - Session management and recovery
-
-2. **Performance Optimization**
-   - Implement caching for frequently accessed data
-   - Lazy loading for images and content
-   - Reduce API calls with intelligent refresh strategies
-   - Optimize rendering for large datasets
-
-3. **Additional Features**
-   - Recently closed tabs recovery
-   - Tab group templates and presets
-   - Notes and annotations for bookmarks
-   - Integration with task management tools
-
-### Long-term Goals
-
-1. **Inactive Tab Groups Solution**
-   - Research alternative approaches to retrieve offloaded tab groups
-   - Implement local storage tracking of all tab groups
-   - Create background service worker to monitor tab group changes
-   - Develop fallback mechanisms for memory-offloaded groups
-
-2. **Advanced Analytics**
-   - Browsing statistics and insights
-   - Most visited sites and time tracking
-   - Tab group usage patterns
-   - Productivity metrics and reports
-
-3. **Cross-browser Support**
-   - Firefox extension port
-   - Safari extension support
-   - Edge-specific optimizations
-   - Unified codebase with browser-specific adapters
-
-4. **AI Integration**
-   - Smart tab group suggestions based on browsing patterns
-   - Automatic categorization of bookmarks
-   - Predictive search and recommendations
-   - Natural language queries for history search
-
+2. **Make it Generalized and Distributable**
+   - Implement a version that can be edited in the frontend, improving user experience
+   - Generalizing functionality for multiple browsers
+   - Support for other browsers (Firefox, Opera, etc.)
+   - Installable through the Google Chrome Store.
 ## Technical Details
-
-### Permissions Required
-
-- `tabGroups`: Access to tab groups data
-- `bookmarks`: Read bookmark information
-- `history`: Access browsing history
-- `chrome_url_overrides`: Override the new tab page
 
 ### Browser Compatibility
 

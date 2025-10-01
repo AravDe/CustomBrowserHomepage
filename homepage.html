@@ -3,32 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>New Tab</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
-</head>    
+</head>
 <body>
+    <div id="pinterest-gallery"></div>
 
     <header>
-        <h1>Welcome, Jontz!</h1>
+        <h1>Welcome Back!</h1>
     </header>
 
-    <main class = "container">
-        <section id = "tag-groups-section">
-            <h2>Active Tab Groups</h2>
-            <ul id="tab-groups-list">
-                </ul>
+    <main class="container">
+        <section id="tab-groups-section">
+            <h2><i class="fa-solid fa-layer-group"></i> Active Tab Groups</h2>
+            <ul id="tab-groups-list"></ul>
         </section>
-        <section id = "history-section"> 
-            <h2>Recently Visited Sites</h2>
-            <ul id="history-list">
-            </ul>
+        
+        <section id="bookmarks-section">
+            <h2><i class="fa-solid fa-book-bookmark"></i> Recent Bookmarks</h2>
+            <ul id="bookmarks-list"></ul>
         </section>
-        <section id = "bookmarks-section"> 
-            <h2>Recently Visited Sites</h2>
-            <ul id="bookmarks-list">
-            </ul>
+
+        <section id="history-section">
+            <h2><i class="fa-solid fa-clock-rotate-left"></i> Recently Visited</h2>
+            <ul id="history-list"></ul>
         </section>
     </main>
-    <script src = "script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name" : "Arav's Dashboard",
+    "version" : "1.0",
+    "description" : "I made a custom homepage for my brave browser to easily be able to access tab groups, bookmarks, etc",
+    "permissions" : ["bookmarks", "history", "tabGroups"],
+    "chrome_url_overrides" : {
+        "newtab" : "homepage.html"
+    }
+}

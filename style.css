@@ -13,63 +13,110 @@ body {
     color: var(--text-color);
     font-family: 'Poppins', sans-serif; /* Using our new font */
     margin: 0;
-    padding: 2rem;
+    padding: 1rem;
+    overflow: hidden;
+    height: 100vh;
 }
 
-#pinterest-gallery { /* Keeping our gallery from before */
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-    column-count: 5; column-gap: 10px; padding: 10px; overflow: hidden;
+#pinterest-gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
 }
 
 #pinterest-gallery img {
-    width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px; opacity: 0.15;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    filter: none;
 }
 
 header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 16px;
+    padding: 1rem;
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: var(--header-color);
-    font-weight: 600; /* Bolder font weight */
+    font-weight: 600;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive grid */
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     max-width: 1200px;
     margin: 0 auto;
+    height: calc(100vh - 6rem);
+    overflow-y: auto;
 }
 
-/* Card Styling */
+.container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background: #9d6fd8;
+}
+
+/* Card Styling - Frosted Glass Effect */
 section {
-    background-color: var(--card-color);
-    border-radius: 12px;
-    padding: 1.5rem;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background: rgba(30, 30, 30, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 16px;
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    flex-shrink: 0;
 }
 
 section:hover {
-    transform: translateY(-5px); /* Lift card on hover */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(187, 134, 252, 0.3);
+}
+
+/* Section Header - Flexbox Layout */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
 }
 
 /* Card Header Styling */
 h2 {
-    margin-top: 0;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.75rem;
-    margin-bottom: 1rem;
+    margin: 0;
     color: var(--header-color);
     font-weight: 500;
     font-size: 1.2rem;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 h2 .fa-solid {
@@ -78,49 +125,193 @@ h2 .fa-solid {
     font-size: 1.1rem;
 }
 
-/* List Item Styling */
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Search Input Styling */
+.search-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem 0.75rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    outline: none;
 }
 
-li {
+.search-input::placeholder {
+    color: var(--text-muted-color);
+    opacity: 0.7;
+}
+
+.search-input:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(187, 134, 252, 0.15);
+}
+
+.search-input.no-results {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
+}
+
+/* Items Container - Horizontal Scrolling */
+.items-container {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scroll-behavior: smooth;
+}
+
+.items-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.items-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 3px;
+}
+
+.items-container::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 3px;
+}
+
+.items-container::-webkit-scrollbar-thumb:hover {
+    background: #9d6fd8;
+}
+
+/* Item Block Styling */
+.item-block {
+    min-width: 200px;
+    max-width: 250px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.item-block:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(187, 134, 252, 0.3);
+}
+
+/* Block Link Styling */
+.block-link {
     display: flex;
     align-items: center;
-    padding: 0.75rem 0.5rem;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-}
-
-li:hover {
-    background-color: rgba(255, 255, 255, 0.05); /* Highlight on hover */
-}
-
-/* Link Styling */
-a {
-    color: var(--text-color);
+    gap: 0.75rem;
     text-decoration: none;
+    color: var(--text-color);
+    width: 100%;
+}
+
+/* Block Icon */
+.block-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+/* Block Content */
+.block-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.block-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 0.95rem;
     transition: color 0.2s ease;
 }
 
-li:hover a {
+.item-block:hover .block-title {
     color: var(--accent-color);
 }
 
-/* Icon Styling inside list items */
-li .fa-solid {
-    font-size: 0.9rem;
-    margin-right: 1rem;
+.block-url {
+    font-size: 0.75rem;
     color: var(--text-muted-color);
-    width: 20px; /* Align text nicely */
-    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 0.25rem;
 }
 
-.group-color-dot { /* Keeping this from before */
-    width: 12px; height: 12px; border-radius: 50%; margin-right: 1rem;
+/* Group Color Bar */
+.group-color-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+}
+
+/* Collapsed Badge */
+.collapsed-badge {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.15rem 0.4rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-muted-color);
+}
+
+/* Empty Message */
+.empty-message {
+    color: var(--text-muted-color);
+    font-size: 0.9rem;
+    padding: 1rem;
+    text-align: center;
+    font-style: italic;
+}
+
+/* Refresh Button */
+.refresh-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.refresh-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: rotate(90deg);
+}
+
+.refresh-btn:active {
+    transform: rotate(180deg);
+}
+
+.refresh-btn i {
+    transition: transform 0.3s ease;
 }

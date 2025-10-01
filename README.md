@@ -1,6 +1,5 @@
 # Custom HTML Page - Browser Extension
 
-<img alt='Screenshot' src='img alt='' src='/Users/aravde/Custom HTML page/Screenshot 2025-10-01 at 2.20.06 AM.png' width='100%' height='auto'/>
 
 A Chrome/Brave browser extension that provides a unified dashboard for managing tab groups, bookmarks, browsing history, and displays beautiful nature-themed background images.
 
